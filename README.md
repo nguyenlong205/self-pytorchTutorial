@@ -9,6 +9,4 @@ Welcome to the **PyTorch Tutorials** repository! This project is designed to hel
 | Lesson    | Description                                             |
 |-----------|---------------------------------------------------------|
 | Lesson 01 | Environment Initiation and Setup  |
-| Lesson 02 | Neural Networks and Autograd                            |
-| Lesson 03 | Building a Classifier with `nn.Module`                  |
-| Lesson 04 | Training Loop, Loss Functions, and Optimizers           |
+| Lesson 02 | Introduction to PyTorch |
