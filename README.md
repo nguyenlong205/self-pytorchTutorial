@@ -6,7 +6,9 @@ Welcome to the **PyTorch Tutorials** repository! This project is designed to hel
 
 ## 📚 Contents
 
-| Lesson    | Description                                             |
+| Lesson    | Lesson name                                             |
 |-----------|---------------------------------------------------------|
 | Lesson 01 | Environment Initiation and Setup  |
 | Lesson 02 | Introduction to PyTorch |
+| Lesson 03 | Fundamentals of PyTorch - Tensors and Operations |
+| Lesosn 04 | Fundamentals of PyTorch - Neural Networks with PyTorch |
