@@ -1,4 +1,9 @@
 # Environment Initiation and Setup
+## Table of Contents
+- [Setup with Terminal](#setup-with-terminal)
+    - [CUDA](#cuda)
+    - [Installing with `pip`](#installing-with-pip)
+    - [Checking PyTorch's version and job](#checking-pytorchs-version-and-job)
 This lecture note introduces the environment initiation ans setup before working with
 
 PyTorch (`torch`) can be installed and used on Windows platforms. Window 7 or greater are required, but Window 10 or greater are recommended.
@@ -19,7 +24,7 @@ As aforementioned, CUDA helps PyTorch performs better as it provides parallel co
 
 In my GitHub repository, I chose my appropriate PyTorch's version, and I put it in `requirement.txt` file, alongwith other necessary libraries.
 
-### Checking PyTorch's version
+### Checking PyTorch's version and job
 After download PyTorch, you can check the version of `torch` if it is appropriate by using the following code snippet:
 
 ```python
