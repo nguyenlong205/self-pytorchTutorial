@@ -13,6 +13,6 @@ In AI and AI-related fields, CUDA is pivotal for its capabilities in acceleratin
 ### Installing with `pip`
 
 For the most appropriate version, please access [PyTorch | Get Started](https://pytorch.org/get-started/locally/#windows-installation), then scroll down until you see the table as below.
-![alt text](./src/appropriate_version.png)
+![alt text](./pic/appropriate_version.png)
 
 As aforementioned, CUDA helps PyTorch performs better as it provides parallel computing platform, accelerating speed in training model and other tasks.
