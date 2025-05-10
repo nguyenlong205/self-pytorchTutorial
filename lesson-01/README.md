@@ -16,3 +16,34 @@ For the most appropriate version, please access [PyTorch | Get Started](https://
 ![alt text](./pic/appropriate_version.png)
 
 As aforementioned, CUDA helps PyTorch performs better as it provides parallel computing platform, accelerating speed in training model and other tasks.
+
+In my GitHub repository, I chose my appropriate PyTorch's version, and I put it in `requirement.txt` file, alongwith other necessary libraries.
+
+### Checking PyTorch's version
+After download PyTorch, you can check the version of `torch` if it is appropriate by using the following code snippet:
+
+```python
+import torch
+print("PyTorch version")
+print(torch.__version__)
+```
+In my case, it returns:
+```
+PyTorch version
+2.7.0+cpu
+```
+
+Now let's check if the `torch` works well by the following code snippet.
+```python
+import torch
+x = torch.rand(5, 3)
+print(x)
+```
+Now, it should returns something that is similar to:
+```
+tensor([[0.1002, 0.0356, 0.3396],
+        [0.8364, 0.1004, 0.9889],
+        [0.6799, 0.6377, 0.5759],
+        [0.6417, 0.3957, 0.1448],
+        [0.3405, 0.4941, 0.4843]])
+```
