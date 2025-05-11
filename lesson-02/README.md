@@ -23,7 +23,7 @@ The general principle of PyTorch is to provide a flexible, dynamic framework for
 
 > Tensors and Tensor Operations?
 
-*The central unit of data in TensorFlow.js is the tf.Tensor – a set of values shaped into an array of one or more dimensions. tf.Tensor are very similar to multidimensional arrays. We will show it more details in the upcoming lesson (Lesson 03)*
+*The central unit of data in PyTorch (and also other DL frameworks) is ***Tensor*** – a set of values shaped into an array of one or more dimensions. tf.Tensor are very similar to multidimensional arrays. We will show it more details in the upcoming lesson (Lesson 03)*
 
 *While tensors allow you to store data, operations (ops) allow you to manipulate that data. PyTorch (`torch`) provides a wide variety of ops suitable for linear algebra and machine learning that can be performed on tensors.*
 
