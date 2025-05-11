@@ -30,6 +30,18 @@ The general principle of PyTorch is to provide a flexible, dynamic framework for
 
 ### Tensor: Basic unit of Deep Learning
 
+Generally, **tensors** are multi-dimentional arrays and similar to `numpy`'s arrays. The difference between them is the ability of running on GPUs. Here is an example of a **tensor**.
+```python
+import torch
+# Create a 2x3 tensor
+tensor = torch.tensor([[1, 2, 3], [4, 5, 6]])
+print(tensor)
+```
+It should return the following result
+```
+tensor([[1, 2, 3],
+        [4, 5, 6]])
+```
 
 ## References
 
