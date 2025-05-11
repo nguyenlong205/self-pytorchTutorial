@@ -12,6 +12,11 @@ This lecture introduces the detailed description of PyTorch, lists the tasks/job
 [3. PyTorch in NLP](#3-pytorch-in-nlp) \
 &emsp;&emsp;[3.1. Deep Learning, DL framework and NLP](#31-deep-learning-dl-framework-and-nlp) \
 &emsp;&emsp;[3.2. PyTorch in NLP tasks](#32-pytorch-in-nlp-tasks) \
+[4. PyTorch versus TensorFlow](#4-pytorch-versus-tensorflow) \
+[5. Life-cycle of a DL project](#5-life-cycle-of-a-dl-project) \
+&emsp;&emsp;[5.1. Life-cycle of a project](#51-life-cycle-of-a-project) \
+&emsp;&emsp;[5.2. DL project's pipeline of a NLP project](#52-dl-projects-pipeline-of-a-nlp-project) \
+[REFERENCES](#references)
 
 
 
@@ -144,12 +149,53 @@ The choice between the two depends on your project needs: PyTorch is great for r
 | **Best For**             | Research, prototyping, fast development           | Production, large-scale systems, mobile/web deployment      |
 
 For learning and research purposes, **PyTorch** could be the better choice.
-## References
+
+## 5. Life-cycle of a DL project
+### 5.1. Life-cycle of a project
+The **Deep Learning (DL) project life cycle** is a cyclic process used to build an efficient machine learning project. The primary goal is to find a solution to a problem by utilizing available data. The following steps outline the key stages of the DL end-to-end life cycle:
+
+#### Phase 1. DL Problem Statement
+This initial step involves recognizing the existence of a problem and identifying potential solutions that could lead to tangible improvements, such as enhancing operations, reducing costs, increasing customer satisfaction, or addressing specific business challenges.  
+**Example**: Detecting **PPE Kits** in the construction industry.
+
+#### Phase 2. DL Data Procurement
+The second step is dedicated to collecting the necessary data and preparing it for use in deep learning. This might involve consulting with professionals (e.g., from the construction industry for the PPE kit example) to determine relevant data and effective camera placement.  
+Data gathered can be used for **training** or **Transfer Learning**, and must be formatted in a way the model can easily organize and understand.
+
+#### Phase 3. DL Data Pre-Processing
+Data pre-processing is a Data Mining technique used to convert raw data into a format that DL models can process. Real-world data is often incomplete, unreliable, biased, or contains errors.  
+**Pre-processing steps**:  
+- Data labeling and annotation (for video/image data)
+- Data tagging (for speech/text data)  
+This stage addresses issues such as missing behaviors, errors, or biases in the data.
+
+#### Phase 4. DL Model Development
+To extract insights from the collected and pre-processed data, it's important to set a target variable—the key component you want insights about.  
+**Example**: Training a model to detect vehicles in a parking garage, then classifying them by type (cars, trucks, SUVs), brand, make, and color.  
+This requires **iterative model learning** and potentially using a **model ensemble layer**. The "Deep" in **Deep Learning** refers to the depth of the models. Deep Learning is a subset of machine learning where models learn by creating their own computing methods using neural networks, optimizers, and loss functions.
+
+#### Phase 5. DL Model Optimization
+Once the model is trained, optimization is necessary to fine-tune it for the specific problem at hand. The optimization typically focuses on three areas:  
+- **Accuracy Optimization**  
+- **Memory Optimization**  
+- **Latency/Throughput Optimization**
+
+#### Phase 6. DL Model Inference
+After the model is successfully trained and optimized, the next step is to explain its outcomes to individuals with limited knowledge in data science.  
+Making the model interpretable helps communicate its value and importance to key stakeholders.
+
+#### Phase 7. DL Model Governance
+The final step involves implementing, documenting, and versioning the DL models, as well as maintaining the data science project. This ensures the model can be utilized, and its performance can be continuously improved.  
+This phase is commonly referred to as the **model CI/CD pipeline** and is typically the longest in duration among all the steps in the deep learning cycle.
+
+### 5.2. DL project's pipeline of a NLP project
+## REFERENCES
 
 [1] Wikipedia contributors. (2025, April 19). PyTorch. Wikipedia. https://en.wikipedia.org/wiki/PyTorch \
 [2] Domke, J. (n.d.). Automatic Differentiation and Neural Networks. https://people.cs.umass.edu/~domke/courses/sml2010/07autodiff_nnets.pdf \
 [3] GeeksforGeeks. (2021, August 20). Tensors and operations. GeeksforGeeks. https://www.geeksforgeeks.org/tensors-and-operations/ \
-[4] Junge, K. (2023, October 20). 10 Principles of PyTorch - Kasper Junge - Medium. Medium. https://medium.com/@kasperjuunge/10-principles-of-pytorch-bbe4bf0c42cd 
+[4] Junge, K. (2023, October 20). 10 Principles of PyTorch - Kasper Junge - Medium. Medium. https://medium.com/@kasperjuunge/10-principles-of-pytorch-bbe4bf0c42cd \
+[5] Muthiyan, B. (2021, April 13). #4 Deep Learning End-to-End Life-Cycle. https://www.linkedin.com/pulse/4-deep-learning-end-to-end-life-cycle-bhushan-muthiyan/
 
 
 ```bash
