@@ -4,6 +4,7 @@ This lecture introduces the detailed description of PyTorch, lists the tasks/job
 
 ## Table of Contents
 [What is PyTorch?](#what-is-pytorch)
+[General principle of PyTorch](#general-principle-of-pytorch)
 
 ## What is PyTorch
 PyTorch is an open-source machine learning library developed by Facebook's AI Research lab (FAIR). It is widely used for **deep learning tasks** such as computer vision, natural language processing (NLP), and reinforcement learning. PyTorch offers dynamic computation graphs and a Pythonic interface, making it intuitive for researchers and developers alike. A number of pieces of deep learning software are built on top of PyTorch, including Tesla Autopilot, Uber's Pyro, Hugging Face's Transformers, and Catalyst.
@@ -27,8 +28,11 @@ The general principle of PyTorch is to provide a flexible, dynamic framework for
 
 *While tensors allow you to store data, operations (ops) allow you to manipulate that data. PyTorch (`torch`) provides a wide variety of ops suitable for linear algebra and machine learning that can be performed on tensors.*
 
+### Tensor: Basic unit of Deep Learning
+
 
 ## References
 
 [1] Wikipedia contributors. (2025, April 19). PyTorch. Wikipedia. https://en.wikipedia.org/wiki/PyTorch \
-[2] Domke, J. (n.d.). Automatic Differentiation and Neural Networks. https://people.cs.umass.edu/~domke/courses/sml2010/07autodiff_nnets.pdf
+[2] Domke, J. (n.d.). Automatic Differentiation and Neural Networks. https://people.cs.umass.edu/~domke/courses/sml2010/07autodiff_nnets.pdf \
+[3] GeeksforGeeks. (2021, August 20). Tensors and operations. GeeksforGeeks. https://www.geeksforgeeks.org/tensors-and-operations/ \
