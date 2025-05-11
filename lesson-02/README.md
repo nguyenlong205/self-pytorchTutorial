@@ -3,17 +3,19 @@
 This lecture introduces the detailed description of PyTorch, lists the tasks/jobs that require PyTorch, explain the reasons for using PyTorch, compares between Deep Learning libraries (TensorFlow and PyTorch), and introduce a life-cycle of a deep learning project.
 
 ## Table of Contents
-[What is PyTorch?](#what-is-pytorch)
-[General principle of PyTorch](#general-principle-of-pytorch)
+[1. What is PyTorch?](#1-what-is-pytorch)
+[2. General principle of PyTorch](#2-general-principle-of-pytorch)
+[2.1. Tensor: Basic unit of Deep Learning](#21-tensor-basic-unit-of-deep-learning)
 
-## What is PyTorch
+
+## 1. What is PyTorch
 PyTorch is an open-source machine learning library developed by Facebook's AI Research lab (FAIR). It is widely used for **deep learning tasks** such as computer vision, natural language processing (NLP), and reinforcement learning. PyTorch offers dynamic computation graphs and a Pythonic interface, making it intuitive for researchers and developers alike. A number of pieces of deep learning software are built on top of PyTorch, including Tesla Autopilot, Uber's Pyro, Hugging Face's Transformers, and Catalyst.
 
 PyTorch provides two high-level features:
 - Tensor computing (like NumPy) with strong acceleration via graphics processing units (GPU)
 - Deep neural networks built on a tape-based automatic differentiation system
 
-## General principle of PyTorch
+## 2. General principle of PyTorch
 The general principle of PyTorch is to provide a flexible, dynamic framework for building and training machine learning models - especially *neural networks—using automatic differentiation* and *tensor operations*. It’s particularly well-suited for research and deep learning development.
 
 > What is *Neural Networks using automatic differentiation*? 
@@ -28,7 +30,7 @@ The general principle of PyTorch is to provide a flexible, dynamic framework for
 
 *While tensors allow you to store data, operations (ops) allow you to manipulate that data. PyTorch (`torch`) provides a wide variety of ops suitable for linear algebra and machine learning that can be performed on tensors.*
 
-### Tensor: Basic unit of Deep Learning
+### 2.1. Tensor: Basic unit of Deep Learning
 
 Generally, **tensors** are multi-dimentional arrays and similar to `numpy`'s arrays. The difference between them is the ability of running on GPUs. Here is an example of a **tensor**.
 ```python
@@ -42,6 +44,8 @@ It should return the following result
 tensor([[1, 2, 3],
         [4, 5, 6]])
 ```
+### 2.2.
+
 
 ## References
 
