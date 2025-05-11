@@ -3,9 +3,9 @@
 This lecture introduces the detailed description of PyTorch, lists the tasks/jobs that require PyTorch, explain the reasons for using PyTorch, compares between Deep Learning libraries (TensorFlow and PyTorch), and introduce a life-cycle of a deep learning project.
 
 ## Table of Contents
-[1. What is PyTorch?](#1-what-is-pytorch)
-[2. General principle of PyTorch](#2-general-principle-of-pytorch)
-[2.1. Tensor: Basic unit of Deep Learning](#21-tensor-basic-unit-of-deep-learning)
+[1. What is PyTorch?](#1-what-is-pytorch) \
+[2. General principle of PyTorch](#2-general-principle-of-pytorch) \
+[2.1. Tensor: Basic unit of Deep Learning](#21-tensor-basic-unit-of-deep-learning) \
 
 
 ## 1. What is PyTorch
@@ -46,6 +46,7 @@ tensor([[1, 2, 3],
 ```
 ### 2.2.
 
+.
 
 ## References
 
