@@ -12,5 +12,12 @@ PyTorch provides two high-level features:
 - Tensor computing (like NumPy) with strong acceleration via graphics processing units (GPU)
 - Deep neural networks built on a tape-based automatic differentiation system
 
+## General principle of PyTorch
+The general principle of PyTorch is to provide a flexible, dynamic framework for building and training machine learning models - especially *neural networks—using automatic differentiation* and *tensor operations*. It’s particularly well-suited for research and deep learning development.
+
+> What is *Neural Networks using automatic differentiation*?
+
+
 ## References
-[1] https://en.wikipedia.org/wiki/PyTorch
+[1] Wikipedia contributors. (2025, April 19). PyTorch. Wikipedia. https://en.wikipedia.org/wiki/PyTorch
+[2] Domke, J. (n.d.). Automatic Differentiation and Neural Networks. https://people.cs.umass.edu/~domke/courses/sml2010/07autodiff_nnets.pdf
