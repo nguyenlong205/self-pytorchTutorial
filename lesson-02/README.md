@@ -6,6 +6,8 @@ This lecture introduces the detailed description of PyTorch, lists the tasks/job
 [1. What is PyTorch?](#1-what-is-pytorch) \
 [2. General principle of PyTorch](#2-general-principle-of-pytorch) \
 &emsp;[2.1. Tensor: Basic unit of Deep Learning](#21-tensor-basic-unit-of-deep-learning) \
+&emsp;[2.2. Autograd](#22-autograd) \
+&emsp;[2.3. Modules and Models](#23-modules--models)
 
 
 ## 1. What is PyTorch
@@ -26,7 +28,7 @@ The general principle of PyTorch is to provide a flexible, dynamic framework for
 
 *Because the network consists of many layers and nonlinearities, direct application of calculus rules to compute derivatives becomes impractical. This is where automatic differentiation (autodiff), specifically reverse-mode autodiff, becomes essential.*
 
-> Tensors and Tensor Operations?
+> *Tensors and Tensor Operations?*
 
 *The central unit of data in PyTorch (and also other DL frameworks) is ***Tensor*** – a set of values shaped into an array of one or more dimensions. tf.Tensor are very similar to multidimensional arrays. We will show it more details in the upcoming lesson (Lesson 03)*
 
@@ -46,7 +48,40 @@ It should return the following result
 tensor([[1, 2, 3],
         [4, 5, 6]])
 ```
-### 2.2. Dynamic Computational Graph
+
+
+### 2.2. Autograd
+PyTorch's autograd provides automatic differentiation for all operations on tensors. Set requires_grad=True to track computations. For example:
+```py
+x = torch.tensor([2.], requires_grad=True)
+y = x**2
+y.backward()
+print(x.grad)  # Gradient of y w.r.t x
+```
+In the example above, `y.backward()` computes the derivative of `y` with respect to `x`, which is
+$$
+\frac{dy}{dx}
+$$
+using reverse-mode automatic differentiation. So `x.grad` will be:
+$$
+\left.\frac{dy}{dx}\right|_{x=2} = 2x = 2 \times 2 = 4
+$$
+As a result, it returns:
+```
+tensor([4.])
+```
+
+## 2.3. Modules & Models
+In PyTorch, models are Python classes that inherit from torch.nn.Module. This base class provides:
+- A way to store layers (like nn.Linear, nn.Conv2d, etc.)
+- Automatic parameter tracking
+- A method to define forward computation
+
+In PyTorch, nn.Module provides powerful capabilities for building and managing models. One key advantage is parameter management: by defining layers inside an nn.Module, all parameters (such as weights and biases) are automatically registered and accessible via model.parameters(). This makes it straightforward to pass them to an optimizer for training.
+
+Another benefit is support for nested models. You can include other modules as attributes within your custom model, enabling the construction of complex, deep architectures in a clean and modular way.
+
+Lastly, nn.Module makes serialization easy. You can save the model’s learned parameters using torch.save(model.state_dict()), and later load them back with model.load_state_dict(...), allowing for convenient checkpointing and deployment of models.
 
 ```bash
 git add .
