@@ -5,7 +5,7 @@ This lecture introduces the detailed description of PyTorch, lists the tasks/job
 ## Table of Contents
 [1. What is PyTorch?](#1-what-is-pytorch) \
 [2. General principle of PyTorch](#2-general-principle-of-pytorch) \
-[2.1. Tensor: Basic unit of Deep Learning](#21-tensor-basic-unit-of-deep-learning) \
+&emsp[2.1. Tensor: Basic unit of Deep Learning](#21-tensor-basic-unit-of-deep-learning) \
 
 
 ## 1. What is PyTorch
