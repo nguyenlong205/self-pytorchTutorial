@@ -16,7 +16,8 @@ PyTorch provides two high-level features:
 The general principle of PyTorch is to provide a flexible, dynamic framework for building and training machine learning models - especially *neural networks—using automatic differentiation* and *tensor operations*. It’s particularly well-suited for research and deep learning development.
 
 > What is *Neural Networks using automatic differentiation*? 
-Neural networks, specifically multi-layer perceptrons, are used for function approximation in machine learning. The basic idea is to define a large nonlinear function f(x, θ), parameterized by a vector θ, and then minimize a chosen loss function L measuring how well f predicts the desired output ŷ for given inputs x̂. This minimization is typically done using local optimization algorithms on the empirical risk, which is the sum of the loss over the data. A regularization penalty can also be added to θ.
+
+*Neural networks, specifically multi-layer perceptrons, are used for function approximation in machine learning. The basic idea is to define a large nonlinear function f(x, θ), parameterized by a vector θ, and then minimize a chosen loss function L measuring how well f predicts the desired output ŷ for given inputs x̂. This minimization is typically done using local optimization algorithms on the empirical risk, which is the sum of the loss over the data. A regularization penalty can also be added to θ.*
 
 
 ## References
