@@ -15,6 +15,8 @@ PyTorch provides two high-level features:
 - Tensor computing (like NumPy) with strong acceleration via graphics processing units (GPU)
 - Deep neural networks built on a tape-based automatic differentiation system
 
+
+
 ## 2. General principle of PyTorch
 The general principle of PyTorch is to provide a flexible, dynamic framework for building and training machine learning models - especially *neural networks—using automatic differentiation* and *tensor operations*. It’s particularly well-suited for research and deep learning development.
 
@@ -44,11 +46,13 @@ It should return the following result
 tensor([[1, 2, 3],
         [4, 5, 6]])
 ```
-### 2.2.
+### 2.2. Dynamic Computational Graph
 
+```bash
 git add .
 git commit -m "update lesson 02"
 git push
+```
 
 ## References
 
