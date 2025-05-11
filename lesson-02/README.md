@@ -19,6 +19,14 @@ The general principle of PyTorch is to provide a flexible, dynamic framework for
 
 *Neural networks, specifically multi-layer perceptrons, are used for function approximation in machine learning. The basic idea is to define a large nonlinear function f(x, θ), parameterized by a vector θ, and then minimize a chosen loss function L measuring how well f predicts the desired output ŷ for given inputs x̂. This minimization is typically done using local optimization algorithms on the empirical risk, which is the sum of the loss over the data. A regularization penalty can also be added to θ.*
 
+*Because the network consists of many layers and nonlinearities, direct application of calculus rules to compute derivatives becomes impractical. This is where automatic differentiation (autodiff), specifically reverse-mode autodiff, becomes essential.*
+
+> Tensors and Tensor Operations?
+
+*The central unit of data in TensorFlow.js is the tf.Tensor – a set of values shaped into an array of one or more dimensions. tf.Tensor are very similar to multidimensional arrays. We will show it more details in the upcoming lesson (Lesson 03)*
+
+*While tensors allow you to store data, operations (ops) allow you to manipulate that data. PyTorch (`torch`) provides a wide variety of ops suitable for linear algebra and machine learning that can be performed on tensors.*
+
 
 ## References
 
