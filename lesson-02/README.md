@@ -5,9 +5,14 @@ This lecture introduces the detailed description of PyTorch, lists the tasks/job
 ## Table of Contents
 [1. What is PyTorch?](#1-what-is-pytorch) \
 [2. General principle of PyTorch](#2-general-principle-of-pytorch) \
-&emsp;[2.1. Tensor: Basic unit of Deep Learning](#21-tensor-basic-unit-of-deep-learning) \
-&emsp;[2.2. Autograd](#22-autograd) \
-&emsp;[2.3. Modules and Models](#23-modules--models)
+&emsp;&emsp;[2.1. Tensor: Basic unit of Deep Learning](#21-tensor-basic-unit-of-deep-learning) \
+&emsp;&emsp;[2.2. Autograd](#22-autograd) \
+&emsp;&emsp;[2.3. Modules and Models](#23-modules--models) \
+&emsp;&emsp;[2.4. Dynamic computational graph](#24-dynamic-computational-graph) \
+[3. PyTorch in NLP](#3-pytorch-in-nlp) \
+&emsp;&emsp;[3.1. Deep Learning, DL framework and NLP](#31-deep-learning-dl-framework-and-nlp) \
+&emsp;&emsp;[3.2. PyTorch in NLP tasks](#32-pytorch-in-nlp-tasks) \
+
 
 
 ## 1. What is PyTorch
@@ -71,26 +76,84 @@ As a result, it returns:
 tensor([4.])
 ```
 
-## 2.3. Modules & Models
+### 2.3. Modules & Models
 In PyTorch, models are Python classes that inherit from torch.nn.Module. This base class provides:
 - A way to store layers (like nn.Linear, nn.Conv2d, etc.)
 - Automatic parameter tracking
 - A method to define forward computation
 
-In PyTorch, nn.Module provides powerful capabilities for building and managing models. One key advantage is parameter management: by defining layers inside an nn.Module, all parameters (such as weights and biases) are automatically registered and accessible via model.parameters(). This makes it straightforward to pass them to an optimizer for training.
+In PyTorch, nn.Module provides powerful capabilities for building and managing models. One key advantage is parameter management: by defining layers inside an nn.Module, all parameters (such as weights and biases) are automatically registered and accessible via model.parameters(). This makes it straightforward to pass them to an optimizer for training. Another benefit is support for nested models. You can include other modules as attributes within your custom model, enabling the construction of complex, deep architectures in a clean and modular way. Lastly, nn.Module makes serialization easy. You can save the model’s learned parameters using torch.save(model.state_dict()), and later load them back with model.load_state_dict(...), allowing for convenient checkpointing and deployment of models.
 
-Another benefit is support for nested models. You can include other modules as attributes within your custom model, enabling the construction of complex, deep architectures in a clean and modular way.
+PyTorch provides the nn.Module class to define neural network architectures. Create custom layers by subclassing.
+```python
+import torch.nn as nn
 
-Lastly, nn.Module makes serialization easy. You can save the model’s learned parameters using torch.save(model.state_dict()), and later load them back with model.load_state_dict(...), allowing for convenient checkpointing and deployment of models.
+class SimpleNN(nn.Module):
+
+    def __init__(self):
+        super().__init__()
+        self.fc = nn.Linear(1, 1)
+        
+    def forward(self, x):
+        return self.fc(x)
+```
+
+Yah, in general, it support encapsulations of layers and parameters for forward and backward computation.
+
+### 2.4. Dynamic Computational Graph
+PyTorch uses a define-by-run approach: the graph is built during execution, not before.
+
+
+
+
+
+## 3. PyTorch in NLP
+
+### 3.1. Deep Learning, DL framework and NLP
+> **Deep Learning: Brain ability**
+
+*Deep Learning is a subset of machine learning that uses artificial neural networks with multiple layers to model complex patterns in data. It mimics how the human brain processes information, enabling computers to learn from large amounts of data in a hierarchical manner.*
+
+> **DL framework: Development environment for Deep Learning (DL) works**
+
+*PyTorch is a powerful, flexible deep learning framework that acts as a full environment for building, training, and deploying neural networks. It offers: (1) Tensor operations with GPU support; (2) Automatic differentiation for training (autograd); (3) Modular neural network components (via torch.nn); (4) Optimizers and loss functions; (5) Efficient data loading tools; (6)Easy integration with Python tools and deployment libraries.*
+
+> **NLP: Domain that brain processes**
+
+*Natural Language Processing (NLP) is a field within Artificial Intelligence (AI) focused on the interaction between computers and human languages. Its goal is to enable machines to understand, interpret, and generate human language in a way that is both meaningful and useful.*
+
+### 3.2. PyTorch in NLP tasks
+
+PyTorch is a powerful framework for various Natural Language Processing (NLP) tasks, including text classification, named entity recognition (NER), machine translation, question answering, text generation, summarization, and language modeling. It supports the use of advanced models like RNNs, LSTMs, and transformers (e.g., BERT, GPT, T5) for these tasks. 
+
+Libraries like `Hugging Face` `Transformers`, `TorchText`, and `fairseq` offer pre-trained models, easy fine-tuning, and tools for text processing and sequence-to-sequence tasks. PyTorch's flexibility makes it ideal for experimenting with and deploying models in a wide range of NLP applications.
+
+## 4. PyTorch versus TensorFlow
+
+The choice between the two depends on your project needs: PyTorch is great for rapid development and experimentation, while TensorFlow is powerful for production and deployment at scale.
+
+| **Feature**              | **PyTorch**                                       | **TensorFlow**                                              |
+| ------------------------ | ------------------------------------------------- | ----------------------------------------------------------- |
+| **Ease of Use**          | Easier, more Pythonic, great for research         | Slightly more complex, better for production                |
+| **Computation Graph**    | Dynamic (define-by-run)                           | Static (define-and-run), supports dynamic in TensorFlow 2.0 |
+| **Community**            | Strong in research, rapidly growing in production | Larger community, widely used in production                 |
+| **Deployment**           | TorchServe, ONNX for deployment                   | TensorFlow Serving, TensorFlow Lite, TensorFlow\.js         |
+| **Performance**          | Good performance, GPU optimized                   | Optimized for large-scale production, supports TPUs         |
+| **Pre-trained Models**   | Growing, integrated with Hugging Face             | Extensive models via TensorFlow Hub                         |
+| **Data Loading**         | Easy with DataLoader                              | Efficient with tf.data API                                  |
+| **Best For**             | Research, prototyping, fast development           | Production, large-scale systems, mobile/web deployment      |
+
+For learning and research purposes, **PyTorch** could be the better choice.
+## References
+
+[1] Wikipedia contributors. (2025, April 19). PyTorch. Wikipedia. https://en.wikipedia.org/wiki/PyTorch \
+[2] Domke, J. (n.d.). Automatic Differentiation and Neural Networks. https://people.cs.umass.edu/~domke/courses/sml2010/07autodiff_nnets.pdf \
+[3] GeeksforGeeks. (2021, August 20). Tensors and operations. GeeksforGeeks. https://www.geeksforgeeks.org/tensors-and-operations/ \
+[4] Junge, K. (2023, October 20). 10 Principles of PyTorch - Kasper Junge - Medium. Medium. https://medium.com/@kasperjuunge/10-principles-of-pytorch-bbe4bf0c42cd 
+
 
 ```bash
 git add .
 git commit -m "update lesson 02"
 git push
 ```
-
-## References
-
-[1] Wikipedia contributors. (2025, April 19). PyTorch. Wikipedia. https://en.wikipedia.org/wiki/PyTorch \
-[2] Domke, J. (n.d.). Automatic Differentiation and Neural Networks. https://people.cs.umass.edu/~domke/courses/sml2010/07autodiff_nnets.pdf \
-[3] GeeksforGeeks. (2021, August 20). Tensors and operations. GeeksforGeeks. https://www.geeksforgeeks.org/tensors-and-operations/ \
