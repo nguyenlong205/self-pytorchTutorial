@@ -6,9 +6,9 @@ Welcome to the **PyTorch Tutorials** repository! This project is designed to hel
 
 ## 📚 Contents
 
-| Lesson    | Lesson Name                                             | Lesson Description                                                |
-|-----------|---------------------------------------------------------|-------------------------------------------------------------------|
-| Lesson 01 | Environment Initiation and Setup                        | Set up Python, install PyTorch, and configure your dev environment. |
-| Lesson 02 | Introduction to PyTorch                                 | Understand what PyTorch is and how it fits into the ML ecosystem.  |
-| Lesson 03 | Fundamentals of PyTorch - Tensors and Operations        | Learn about tensors, basic operations, and PyTorch syntax.         |
-| Lesson 04 | Fundamentals of PyTorch - Neural Networks with PyTorch  | Build simple neural networks using PyTorch modules.                |
+| CHAPTER   |   Lesson     | Lesson Name                                             | Lesson Description                                                |
+|-----------|--------------|---------------------------------------------------------|-------------------------------------------------------------------|
+|`0`        | Lesson 00.01 | Environment Initiation and Setup                        | Set up Python, install PyTorch, and configure your dev environment.|
+|`0`        | Lesson 00.02 | Introduction to PyTorch                                 | Understand what PyTorch is and how it fits into the ML ecosystem.  |
+|`1`        | Lesson 01.01 | Fundamentals of PyTorch - Tensors and Operations        | Learn about tensors, basic operations, and PyTorch syntax.         |
+|`1`        | Lesson 01.02 | Fundamentals of PyTorch - Neural Networks with PyTorch  | Build simple neural networks using PyTorch modules.                |
