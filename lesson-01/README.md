@@ -3,6 +3,7 @@
 - [Setup with Terminal](#setup-with-terminal)
     - [CUDA](#cuda)
     - [Installing with `pip`](#installing-with-pip)
+    - [Check of CUDA version and its availability](#check-of-cuda-version-and-its-availability)
     - [Checking PyTorch's version and job](#checking-pytorchs-version-and-job)
 
 This lecture note introduces the environment initiation ans setup before working with
@@ -27,6 +28,20 @@ In my GitHub repository, I chose my appropriate PyTorch's version, and I put it 
 In my case, I choose `CUDA 12.6`, so the `pip3` statement is:
 ```bash
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+```
+
+### Check of CUDA version and its availability
+```python
+print("Check of CUDA version and its availability")
+print(torch.version.cuda)
+print(torch.cuda.is_available(), end = '\n\n')
+```
+
+It should return
+```bash
+Check of CUDA version and its availability
+12.6
+True
 ```
 
 ### Checking PyTorch's version and job
@@ -56,10 +71,4 @@ tensor([[0.1002, 0.0356, 0.3396],
         [0.6799, 0.6377, 0.5759],
         [0.6417, 0.3957, 0.1448],
         [0.3405, 0.4941, 0.4843]])
-```
-### Check of CUDA version and its availability
-```python
-print("Check of CUDA version and its availability")
-print(torch.version.cuda)
-print(torch.cuda.is_available(), end = '\n\n')
 ```
