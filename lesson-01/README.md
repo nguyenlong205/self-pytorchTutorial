@@ -24,6 +24,10 @@ For the most appropriate version, please access [PyTorch | Get Started](https://
 As aforementioned, CUDA helps PyTorch performs better as it provides parallel computing platform, accelerating speed in training model and other tasks.
 
 In my GitHub repository, I chose my appropriate PyTorch's version, and I put it in `requirement.txt` file, alongwith other necessary libraries.
+In my case, I choose `CUDA 12.6`, so the `pip3` statement is:
+```bash
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+```
 
 ### Checking PyTorch's version and job
 After download PyTorch, you can check the version of `torch` if it is appropriate by using the following code snippet:
@@ -52,4 +56,10 @@ tensor([[0.1002, 0.0356, 0.3396],
         [0.6799, 0.6377, 0.5759],
         [0.6417, 0.3957, 0.1448],
         [0.3405, 0.4941, 0.4843]])
+```
+### Check of CUDA version and its availability
+```python
+print("Check of CUDA version and its availability")
+print(torch.version.cuda)
+print(torch.cuda.is_available(), end = '\n\n')
 ```
