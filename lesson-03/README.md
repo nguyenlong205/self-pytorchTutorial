@@ -8,7 +8,7 @@
 [2. Operation](#2-operation) \
 &emsp;&emsp;[2.1. Mathematical Operation](#21-mathematical-operation) \
 &emsp;&emsp;[2.2. Agregate Function](#22-aggregate-function) \
-&emsp;&emsp;[2.2. Agregate Function](#22-aggregate-function) 
+&emsp;&emsp;[2.3. Shape adjustment](#23-shape-adjustment) 
 
 
 ## 1. Tensor
@@ -103,6 +103,105 @@ Mean: 2.5
 - **Reshaping Operations**: `torch.reshape()` or `torch.view()`
 - **Concatentation**: `torch.cat((a, b), dim = 0)` for concatinate along rows, or `torch.cat((a, b), dim = 1)` for concatinate along columns.
 - **Stacking**: `torch.stack()`
+
+Here is an example:
+```python
+import torch
+
+# --- 1. Device Setup ---
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f"--- Device Setup ---")
+print(f"Using device: {device}\n")
+
+print('')
+print('RESHAPE TENSOR ==================================')
+original_tensor = torch.arange(12, dtype=torch.float32, device=device)
+print(f"--- Original Tensor ---")
+print(f"Tensor: {original_tensor}")
+
+reshaped_tensor = original_tensor.reshape(3, 4)
+print(f"--- Reshaping with .reshape(3, 4) ---")
+print(f"Reshaped Tensor:\n{reshaped_tensor}")
+
+print('')
+print('TENSOR CONCATENATION ============================')
+tensor_a = torch.tensor([[10, 20, 30],
+                         [40, 50, 60]], dtype=torch.float32, device=device)
+tensor_b = torch.tensor([[70, 80, 90],
+                         [100, 110, 120]], dtype=torch.float32, device=device)
+
+print(f"--- Concatenation (torch.cat()) ---")
+print(f"Tensor A:\n{tensor_a}")
+print(f"Tensor B:\n{tensor_b}")
+
+concat_rows = torch.cat((tensor_a, tensor_b), dim=0)
+print(f"Concatenated along dim=0 (rows):\n{concat_rows}")
+
+concat_cols = torch.cat((tensor_a, tensor_b), dim=1)
+print(f"Concatenated along dim=1 (columns):\n{concat_cols}")
+
+
+# --- 5. Stacking Operation: torch.stack() ---
+print('')
+print('TENSOR STACKING =================================')
+stack_tensor1 = torch.tensor([1, 2, 3], dtype=torch.float32, device=device)
+stack_tensor2 = torch.tensor([4, 5, 6], dtype=torch.float32, device=device)
+stack_tensor3 = torch.tensor([7, 8, 9], dtype=torch.float32, device=device)
+
+print(f"--- Stacking (torch.stack()) ---")
+print(f"Tensors to stack: {stack_tensor1}, {stack_tensor2}, {stack_tensor3}")
+
+stacked_dim0 = torch.stack((stack_tensor1, stack_tensor2, stack_tensor3), dim=0)
+print(f"Stacked along dim=0 (new 1st dim):\n{stacked_dim0}")
+
+stacked_dim1 = torch.stack((stack_tensor1, stack_tensor2, stack_tensor3), dim=1)
+print(f"Stacked along dim=1 (new 2nd dim):\n{stacked_dim1}")
+```
+Now it should return:
+```
+--- Device Setup ---
+Using device: cuda
+
+
+RESHAPE TENSOR ==================================
+--- Original Tensor ---
+Tensor: tensor([ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10., 11.],
+       device='cuda:0')
+--- Reshaping with .reshape(3, 4) ---
+Reshaped Tensor:
+tensor([[ 0.,  1.,  2.,  3.],
+        [ 4.,  5.,  6.,  7.],
+        [ 8.,  9., 10., 11.]], device='cuda:0')
+
+TENSOR CONCATENATION ============================
+--- Concatenation (torch.cat()) ---
+Tensor A:
+tensor([[10., 20., 30.],
+        [40., 50., 60.]], device='cuda:0')
+Tensor B:
+tensor([[ 70.,  80.,  90.],
+        [100., 110., 120.]], device='cuda:0')
+Concatenated along dim=0 (rows):
+tensor([[ 10.,  20.,  30.],
+        [ 40.,  50.,  60.],
+        [ 70.,  80.,  90.],
+        [100., 110., 120.]], device='cuda:0')
+Concatenated along dim=1 (columns):
+tensor([[ 10.,  20.,  30.,  70.,  80.,  90.],
+        [ 40.,  50.,  60., 100., 110., 120.]], device='cuda:0')
+
+TENSOR STACKING =================================
+--- Stacking (torch.stack()) ---
+Tensors to stack: tensor([1., 2., 3.], device='cuda:0'), tensor([4., 5., 6.], device='cuda:0'), tensor([7., 8., 9.], device='cuda:0')
+Stacked along dim=0 (new 1st dim):
+tensor([[1., 2., 3.],
+        [4., 5., 6.],
+        [7., 8., 9.]], device='cuda:0')
+Stacked along dim=1 (new 2nd dim):
+tensor([[1., 4., 7.],
+        [2., 5., 8.],
+        [3., 6., 9.]], device='cuda:0')
+```
 
 > *What are the differences between **concatenation** and **stack**?*
 
