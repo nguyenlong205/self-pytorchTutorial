@@ -204,31 +204,8 @@ tensor([[1., 4., 7.],
 ```
 
 > *What are the differences between **concatenation** and **stack**?*
-
-Concatenation
-```python
-a = torch.tensor([[1, 2], [3, 4]])
-b = torch.tensor([[5, 6], [7, 8]])
-c = torch.cat((a, b), dim=0) # Concatenate along rows
-# tensor([[1, 2],
-#         [3, 4],
-#         [5, 6],
-#         [7, 8]])
-d = torch.cat((a, b), dim=1) # Concatenate along columns
-# tensor([[1, 2, 5, 6],
-#         [3, 4, 7, 8]])
-```
-Stacking
-```python
-a = torch.tensor([1, 2])
-b = torch.tensor([3, 4])
-c = torch.stack((a, b), dim=0) # Stacks them as rows
-# tensor([[1, 2],
-#         [3, 4]])
-d = torch.stack((a, b), dim=1) # Stacks them as columns
-# tensor([[1, 3],
-#         [2, 4]])
-```
+- `torch.cat()` (concatenate) joins tensors along an existing dimension, increasing the size of that dimension. Input tensors must match in all other dimensions.
+- `torch.stack()` joins tensors by creating a new dimension. Input tensors must have the exact same shape.
 ## REFERENCES
 [1] Wikipedia contributors. (2025, April 20). Tensor. Wikipedia. https://en.wikipedia.org/wiki/Tensor \
 [2] Học viện spacedev. (n.d.). https://spacedev.vn/resources/docs/pytorch/tensor-operations
