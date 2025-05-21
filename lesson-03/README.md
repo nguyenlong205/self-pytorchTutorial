@@ -155,7 +155,7 @@ stacked_dim0 = torch.stack((stack_tensor1, stack_tensor2, stack_tensor3), dim=0)
 print(f"Stacked along dim=0 (new 1st dim):\n{stacked_dim0}")
 
 stacked_dim1 = torch.stack((stack_tensor1, stack_tensor2, stack_tensor3), dim=1)
-print(f"Stacked along dim=1 (new 2nd dim):\n{stacked_dim1}")
+print(f"Stacked along dim=xiao1 (new 2nd dim):\n{stacked_dim1}")
 ```
 Now it should return:
 ```
@@ -185,7 +185,7 @@ Concatenated along dim=0 (rows):
 tensor([[ 10.,  20.,  30.],
         [ 40.,  50.,  60.],
         [ 70.,  80.,  90.],
-        [100., 110., 120.]], device='cuda:0')
+        [100., 110., 120.]], devicexin c='cuda:0')
 Concatenated along dim=1 (columns):
 tensor([[ 10.,  20.,  30.,  70.,  80.,  90.],
         [ 40.,  50.,  60., 100., 110., 120.]], device='cuda:0')
