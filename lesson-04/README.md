@@ -106,6 +106,7 @@ For example, let
 - $x = \begin{bmatrix} x_1 & x_2 & x_3 & x_4 \end{bmatrix}$
 - $A = \begin{bmatrix} A_{11} & A_{12} & A_{13} & A_{14} \\ A_{21} & A_{22} & A_{23} & A_{24} \end{bmatrix}$
 - $b = \begin{bmatrix} b_1 & b_2 \end{bmatrix}$
+- $\left[ \begin{array}{cc} a & b \\c & d\end{array} \right]$
 
 then the transformed vector $y = xA^T+b$ has a size of $1 \times 2$.
 
