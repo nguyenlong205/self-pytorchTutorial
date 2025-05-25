@@ -29,9 +29,11 @@
 
 ### 1.2. How Neural Network works?
 
-Learning in neural network, actually is the process of establishment and adjustment of weights of the connections between nodes in a neural system. Those processes are commonly called as *training*. These weights will be optimised while training occurs. Particularly, this process is to refine its weights to minimize errors between its predictions and the actual values.
+Learning in neural network, actually is the process of establishment and adjustment of weights of the connections between nodes in a neural system. Those processes are commonly called as ***training***. These weights will be optimised while training occurs. Particularly, this process is to refine its weights to minimize errors between its predictions and the actual values.
 
-A technique called backpropagation *(will be introduced later in this lecture)* facilitates this weight adjustment. Backpropagation calculates the error in the output and propagates it back through the network, iteratively adjusting weights until a desired accuracy level is achieved. Once trained, the network can make predictions on new data, such as identifying cats in images.
+An ***activation function*** adds non-linearity to a neural network layer’s output, enabling the model to learn complex patterns. Without it, the network would act like a simple linear model. Common activation functions include `ReLU` (Rectified Linear Unit), which outputs zero for negative inputs and the input itself if positive, `sigmoid`, which squashes values between 0 and 1, and `tanh`, which outputs values between -1 and 1. Activation functions enable neural networks to approximate complex functions and solve a wide variety of tasks such as classification, regression, and more.
+
+A technique called ***backpropagation*** *(will be introduced later in this lecture)* facilitates this weight adjustment. Backpropagation calculates the error in the output and propagates it back through the network, iteratively adjusting weights until a desired accuracy level is achieved. Once trained, the network can make predictions on new data, such as identifying cats in images.
 
 ### 1.3. Why Neural Network?
 Neural networks are becoming an essential tool for many businesses and organizations. Here are some reasons why they are so important:
@@ -66,16 +68,18 @@ import torch.nn as nn
 import torch.nn.functional as F
 class MySimpleModel(nn.Module):
     def __init__(self):
-        super().__init__()
-        #Định nghĩa các layer
-        self.lin1 = nn.Linear(256, 128)
-        self.lin2 = nn.Linear(128, 10)
+        super().__init__()  # Call nn.Module's constructor to properly initialize the module
+        # Define layers
+        self.lin1 = nn.Linear(4, 2)
+        self.lin2 = nn.Linear(2, 1)
     def forward(self, x):
-        # Kết nối các layer lại với nhau 
+        # Connect nodes of the layers
         x = self.lin1(x)
         x = self.lin2(x)
         return x
 ```
+The code snippet above illustrates the following neural network architecture.
+![alt text](/lesson-04/img/fully_connected_model_diagram.png)
 
 
 
