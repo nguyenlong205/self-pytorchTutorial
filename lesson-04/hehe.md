@@ -4,8 +4,8 @@ Here's a possible outline for a lesson titled "Neural Networks with PyTorch," ba
 Lesson: Neural Networks with PyTorch
 
 ## I. Introduction to Neural Networks with PyTorch
-A. What are Neural Networks?
-B. Why PyTorch? (Key features and advantages)
+A. What are Neural Networks? \
+B. Why PyTorch? (Key features and advantages)\
 C. Overview of the lesson topics
 
 ## II. Building Blocks of Neural Networks (Core PyTorch Concepts)
