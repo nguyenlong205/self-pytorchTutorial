@@ -4,7 +4,7 @@
 
 
 
-## Table of Contents
+# Table of Contents
 [1. Introduction to Neural Networks with Pytorch](#1-introduction-to-neural-networks-with-pytorch) \
 &emsp;&emsp;[1.1. What is Neural Network?](#11-what-is-neural-network) \
 &emsp;&emsp;[1.2. How Neural Network works?](#12-how-neural-network-works) \
@@ -15,7 +15,13 @@
 &emsp;&emsp;[2.2. Fully connected linear transformation layer](#22-fully-connected-linear-transformation-layer) \
 &emsp;&emsp;&emsp;&emsp;[2.2.1 Mathematical foundation](#221-mathematical-foundation) \
 &emsp;&emsp;&emsp;&emsp;[2.2.2. PyTorch approach](#222-pytorch-approach)\
-&emsp;&emsp;&emsp;&emsp;[2.2.3. Attribute of Fully Connected Linear Transformation](#223-attribute-of-fully-connected-linear-transformation)
+&emsp;&emsp;&emsp;&emsp;[2.2.3. Attribute of Fully Connected Linear Transformation](#223-attribute-of-fully-connected-linear-transformation)\
+&emsp;&emsp;&emsp;&emsp;[2.2.4. Use of Fully Connected Linear Transformation](#224-use-of-fully-connected-linear-transformation) \
+&emsp;&emsp;[2.3. Activation function](#224-use-of-fully-connected-linear-transformation) \
+&emsp;&emsp;&emsp;&emsp;[2.3.1. Impact of activation function](#231-impact-of-activation-function) \
+&emsp;&emsp;&emsp;&emsp;[2.3.2. Why is non-linearity important in Neural Networks?](#232-why-is-non-linearity-important-in-neural-networks) \
+
+
 
 [REFERENCES](#references) 
 
@@ -91,7 +97,9 @@ More sophisticated models will be introduced and analysed in detail in the follo
 
 ### 2.2. Fully connected linear transformation layer
 #### 2.2.1. Mathematical foundation
-`nn.Linear` in the context of deep learning typically refers to a linear transformation or fully connected layer in a neural network. It's a fundamental building block in many neural network architectures. It applies an affine linear transformation to the incoming data: 
+>*`nn.Linear` in the context of deep learning typically refers to a linear transformation or fully connected layer in a neural network. It's a fundamental building block in many neural network architectures.* 
+
+It applies an affine linear transformation to the incoming data: 
 $$
 y=xA^T+b
 $$
@@ -184,8 +192,42 @@ This output shape indicates that for every input sample, the linear transformati
 
 - **Universal approximation**: Theoretically, they can approximate any continuous function, giving them broad applicability in various tasks, including NLP.
 - **Flexibility**: Adaptable to diverse data types and network architectures, making them versatile for NLP tasks.
--**Regularization**: Techniques like Dropout help prevent overfitting, especially vital in NLP where models can memorize training data.
+- **Regularization**: Techniques like Dropout help prevent overfitting, especially vital in NLP where models can memorize training data.
 
+### 2.3. Activation function
+> *An activation function introduces non-linearity into the neural network, allowing it to model complex patterns beyond linear relationships. Applied after a linear transformation, it decides whether a neuron should be activated based on its input. Common activation functions include ReLU, Sigmoid, and Tanh.*
+
+#### 2.3.1. Impact of activation function
+The inclusion of the ReLU activation function $\sigma$ allows layers​ to introduce a non-linear decision boundary in the input space. This non-linearity enables the network to learn more complex patterns that are not possible with a purely linear model, such as:
+- Modeling functions that are not linearly separable.
+- Increasing the capacity of the network to form multiple decision boundaries based on the combination of weights and biases.
+
+#### 2.3.2. Why is non-linearity important in Neural Networks?
+Neural networks consist of neurons that operate using **weights**, **biases**, and **activation function**. In the learning process, these weights and biases are updated based on the error produced at the output - a process known as backpropagation. Activation functions enable backpropagation by providing gradients that are essential for updating the weights and biases.
+
+Without non-linearity, even deep networks would be limited to solving only simple, linearly separable problems. Activation functions empower neural networks to model highly complex data distributions and solve advanced deep learning tasks. Adding non-linear activation functions introduce flexibility and enable the network to learn more complex and abstract patterns from data.
+
+#### 2.3.3. Types of Activation function
+For more information, access [*Activation functions neural networks*](https://www.geeksforgeeks.org/activation-functions-neural-networks/).
+##### a. Sigmoid function
+$$
+f(x) = \frac{1}{1+e^{-x}}
+$$
+where $0 < f(x) < 1$.
+![alt text](/lesson-04/img/signmoid.png)
+
+##### b. $\tanh()$ function
+$$
+f(x) = \tanh(x) = \frac{2}{1+e^{-2x}}-1
+$$
+where $-1 < f(x) < 1$.
+![alt text](/lesson-04/img/tanhFunction.png)
+
+##### c. ReLU (Rectified Linear Unit) Function 
+$$
+f(x) = \max(0, x)
+$$
+![alt text](/lesson-04/img/relu.png)
 
 ## REFERENCES
 [1] *What is a Neural Network & How Does It Work?* (May $25^{th}$ 2025). Google Cloud. https://cloud.google.com/discover/what-is-a-neural-network \
