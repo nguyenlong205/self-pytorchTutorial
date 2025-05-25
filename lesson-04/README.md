@@ -14,9 +14,10 @@
 &emsp;&emsp;[2.1. `nn.Module`](#21-nnmodule) \
 &emsp;&emsp;[2.2. Fully connected linear transformation layer](#22-fully-connected-linear-transformation-layer) \
 &emsp;&emsp;&emsp;&emsp;[2.2.1 Mathematical foundation](#221-mathematical-foundation) \
-&emsp;&emsp;&emsp;&emsp;[2.2.2. PyTorch approach](#222-pytorch-approach)
+&emsp;&emsp;&emsp;&emsp;[2.2.2. PyTorch approach](#222-pytorch-approach)\
+&emsp;&emsp;&emsp;&emsp;[2.2.3. Attribute of Fully Connected Linear Transformation](#223-attribute-of-fully-connected-linear-transformation)
 
-
+[REFERENCES](#references) 
 
 
 ## 1. Introduction to Neural Networks with Pytorch
@@ -101,8 +102,7 @@ where:
 - $y$ is the output tensor.
 
 For example, let
-$$
-x = \begin{bmatrix}
+$$x = \begin{bmatrix}
 x_1 & x_2 & \dots & x_n
 \end{bmatrix}, \quad
 A = \begin{bmatrix}
@@ -111,8 +111,7 @@ A_{21} & A_{22} & A_{23} & A_{24}
 \end{bmatrix}, \quad
 b = \begin{bmatrix}
 b_1 & b_2 & b_3 & b_4
-\end{bmatrix}.
-$$
+\end{bmatrix}$$
 then thetransformed vector $y = xA^T+b$ has a size of $1 \times 4$.
 
 #### 2.2.2. PyTorch approach
@@ -145,8 +144,18 @@ print("Output tensor shape:", output_tensor.shape)
 print("\nWeight matrix shape:", linear_layer.weight.shape)
 print("Bias vector shape:", linear_layer.bias.shape)
 ```
+It should return the following result.
+```
+Input tensor shape: torch.Size([3, 10])
+Output tensor shape: torch.Size([3, 5])
+
+Weight matrix shape: torch.Size([5, 10])
+Bias vector shape: torch.Size([5])
+```
+#### 2.2.3. Attribute of Fully Connected Linear Transformation
 ## REFERENCES
 [1] *What is a Neural Network & How Does It Work?* (May $25^{th}$ 2025). Google Cloud. https://cloud.google.com/discover/what-is-a-neural-network \
 [2] *Neural Networks and How They Work in Natural Language Processing* (May $25^{th}$ 2025). Pangeanic. https://blog.pangeanic.com/neural-networks-and-how-they-work-in-natural-language-processing \
 [3] *Module*, PyTorch, https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html \
-[4] *Linear*, PyTorch, https://docs.pytorch.org/docs/stable/generated/torch.nn.Linear.html
+[4] *Linear*, PyTorch, https://docs.pytorch.org/docs/stable/generated/torch.nn.Linear.html \
+[5] *What is Fully Connected Layer in Deep Learning?*, GeekForGeeks, https://www.geeksforgeeks.org/what-is-fully-connected-layer-in-deep-learning/
