@@ -9,7 +9,12 @@
 &emsp;&emsp;[1.1. What is Neural Network?](#11-what-is-neural-network) \
 &emsp;&emsp;[1.2. How Neural Network works?](#12-how-neural-network-works) \
 &emsp;&emsp;[1.3. Why Neural Network?](#13-why-neural-network) \
-&emsp;&emsp;[1.4. Uses of Neural Network in Natural Language Processing (NLP)](#14-uses-of-neural-network-in-natural-language-processing-nlp)
+&emsp;&emsp;[1.4. Uses of Neural Network in Natural Language Processing (NLP)](#14-uses-of-neural-network-in-natural-language-processing-nlp) \
+[2. Building blocks of Neural Networks with PyTorch](#2-building-blocks-of-neural-networks-with-pytorch) \
+&emsp;&emsp;[2.1. `nn.Module`](#21-nnmodule) \
+&emsp;&emsp;[2.2. Fully connected linear transformation layer](#22-fully-connected-linear-transformation-layer) \
+&emsp;&emsp;&emsp;&emsp;[2.2.1 Mathematical foundation](#221-mathematical-foundation) \
+&emsp;&emsp;&emsp;&emsp;[2.2.2. PyTorch approach](#222-pytorch-approach)
 
 
 
@@ -81,11 +86,67 @@ class MySimpleModel(nn.Module):
 The code snippet above illustrates the following neural network architecture.
 ![alt text](/lesson-04/img/fully_connected_model_diagram.png)
 
+More sophisticated models will be introduced and analysed in detail in the following lessons.
 
+### 2.2. Fully connected linear transformation layer
+#### 2.2.1. Mathematical foundation
+`nn.Linear` in the context of deep learning typically refers to a linear transformation or fully connected layer in a neural network. It's a fundamental building block in many neural network architectures. It applies an affine linear transformation to the incoming data: 
+$$
+y=xA^T+b
+$$
+where:
+- $x$ is the input tensor.
+- $A$ is the weight matrix (often denoted as ***weight*** in implementations).
+- $b$ is the bias vector (often denoted as bias).
+- $y$ is the output tensor.
 
+For example, let
+$$
+x = \begin{bmatrix}
+x_1 & x_2 & \dots & x_n
+\end{bmatrix}, \quad
+A = \begin{bmatrix}
+A_{11} & A_{12} & A_{13} & A_{14} \\
+A_{21} & A_{22} & A_{23} & A_{24}
+\end{bmatrix}, \quad
+b = \begin{bmatrix}
+b_1 & b_2 & b_3 & b_4
+\end{bmatrix}.
+$$
+then thetransformed vector $y = xA^T+b$ has a size of $1 \times 4$.
 
+#### 2.2.2. PyTorch approach
+In PyTorch, `nn.Linear(in_features, out_features)` represents a fully connected linear transformation (also called a dense layer). Mathematically, it implements the function:
 
+Its parameters consist of:
+- `in_features` (`int`) – size of each input sample
+- `out_features` (`int`) – size of each output sample
+- `bias` (`bool`) – If set to `False`, the layer will not learn an additive bias. Default: `True`
+
+Here is an example:
+```py
+import torch
+import torch.nn as nn
+
+# Define a linear layer
+# It expects an input with 10 features and will output 5 features
+linear_layer = nn.Linear(in_features=10, out_features=5)
+
+# Create a dummy input tensor (batch size of 3, 10 features)
+# Imagine 3 samples, each with 10 numerical attributes
+input_tensor = torch.randn(3, 10)
+print("Input tensor shape:", input_tensor.shape)
+
+# Pass the input through the linear layer
+output_tensor = linear_layer(input_tensor)
+print("Output tensor shape:", output_tensor.shape)
+
+# Accessing the learned parameters
+print("\nWeight matrix shape:", linear_layer.weight.shape)
+print("Bias vector shape:", linear_layer.bias.shape)
+```
 ## REFERENCES
 [1] *What is a Neural Network & How Does It Work?* (May $25^{th}$ 2025). Google Cloud. https://cloud.google.com/discover/what-is-a-neural-network \
 [2] *Neural Networks and How They Work in Natural Language Processing* (May $25^{th}$ 2025). Pangeanic. https://blog.pangeanic.com/neural-networks-and-how-they-work-in-natural-language-processing \
-[3] *Module*, PyTorch, https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html
+[3] *Module*, PyTorch, https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html \
+[4] *Linear*, PyTorch, https://docs.pytorch.org/docs/stable/generated/torch.nn.Linear.html
