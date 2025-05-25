@@ -112,6 +112,7 @@ A_{21} & A_{22} & A_{23} & A_{24}
 b = \begin{bmatrix}
 b_1 & b_2 & b_3 & b_4
 \end{bmatrix}$$
+
 then thetransformed vector $y = xA^T+b$ has a size of $1 \times 4$.
 
 #### 2.2.2. PyTorch approach
