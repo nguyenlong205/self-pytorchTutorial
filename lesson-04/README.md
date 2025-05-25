@@ -147,7 +147,46 @@ Output tensor shape: torch.Size([3, 5])
 Weight matrix shape: torch.Size([5, 10])
 Bias vector shape: torch.Size([5])
 ```
+
 #### 2.2.3. Attribute of Fully Connected Linear Transformation
+##### a. Weight Matrix $A$
+- Shape: `out_features` $\times$ `in_features`
+- Contains learnable parameters that determine how input features are linearly combined.
+- Each row of $W$ corresponds to the weights used to compute one output feature.
+
+##### b. Bias Vector $b$
+- Shape: `out_features`
+- Each output feature has an associated bias added after the weighted sum.
+- Also learnable during training.
+
+##### c. Linear Mapping
+- Mathematically: $y = xA^T+b$
+- The operation maps input vectors from $\mathbb{R}^n \rightarrow \mathbb{R}^m$ using affine transformation (linear + bias).
+- By itself, it is purely linear. In other words, without an activation function (e.g., `ReLU`, `Sigmoid`), stacking multiple linear layers is equivalent to just one.
+
+##### d. Fully Connected
+Each output depends on all input features. That’s why it's called fully connected: 
+> Every node in one layer connects to every node in the next.
+
+##### e. Support batches
+
+If the input tensor $x$ has shape `[batch_size,in_features]`, it means you're processing a batch of inputs, where each input has `in_features` dimensions. 
+When passed through a fully connected linear layer (e.g., `nn.Linear(in_features, out_features)`), the layer applies the same linear transformation to each input in the batch. As a result, the output tensor will have shape `[batch_size,out_features]`.
+
+This output shape indicates that for every input sample, the linear transformation produces a new vector of length `out_features`. The weights and biases used in this transformation are shared across all samples in the batch.
+
+#### 2.2.4. Use of Fully Connected Linear Transformation
+
+- **Combining features**: They integrate information from previous layers to form high-level representations, important for understanding complex data like language.
+- **Making decisions**: They translate these features into final outputs for tasks like classification (e.g., text categorization in NLP) or regression.
+- **Introducing non-linearity**: Using activation functions, they allow the network to learn complex, non-linear relationships, essential for modeling the intricacies of human language. It follows the following procedure:
+`Feature_input -> Weighted combination -> Non-linear Activation -> Activated output`
+
+- **Universal approximation**: Theoretically, they can approximate any continuous function, giving them broad applicability in various tasks, including NLP.
+- **Flexibility**: Adaptable to diverse data types and network architectures, making them versatile for NLP tasks.
+-**Regularization**: Techniques like Dropout help prevent overfitting, especially vital in NLP where models can memorize training data.
+
+
 ## REFERENCES
 [1] *What is a Neural Network & How Does It Work?* (May $25^{th}$ 2025). Google Cloud. https://cloud.google.com/discover/what-is-a-neural-network \
 [2] *Neural Networks and How They Work in Natural Language Processing* (May $25^{th}$ 2025). Pangeanic. https://blog.pangeanic.com/neural-networks-and-how-they-work-in-natural-language-processing \
