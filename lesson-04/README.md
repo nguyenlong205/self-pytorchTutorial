@@ -214,6 +214,7 @@ $$
 f(x) = \frac{1}{1+e^{-x}}
 $$
 where $0 < f(x) < 1$.
+
 ![alt text](/lesson-04/img/signmoid.png)
 
 ##### b. $\tanh()$ function
@@ -221,12 +222,15 @@ $$
 f(x) = \tanh(x) = \frac{2}{1+e^{-2x}}-1
 $$
 where $-1 < f(x) < 1$.
+
 ![alt text](/lesson-04/img/tanhFunction.png)
 
 ##### c. ReLU (Rectified Linear Unit) Function 
 $$
 f(x) = \max(0, x)
 $$
+where $0 \leq f(x)$.
+
 ![alt text](/lesson-04/img/relu.png)
 
 ## REFERENCES
