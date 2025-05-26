@@ -1,6 +1,6 @@
-# Lesson 04 | Neural Network with PyTorch
+# Lesson 04 | Basic Neural Network with PyTorch
 
-> This lecture provides a foundational understanding of building and training neural networks using PyTorch. We'll cover essential components like `nn.Module`, linear layers, activation and loss functions, and delve into the critical processes of optimization and backpropagation, with a brief introduction to creating custom layers.
+> This lecture provides a **foundational understanding** of building and training neural networks using PyTorch. We'll cover essential components like `nn.Module`, linear layers, activation and loss functions, and delve into the critical processes of optimization and backpropagation, with a brief introduction to creating custom layers.
 
 
 
@@ -20,6 +20,8 @@
 &emsp;&emsp;[2.3. Activation function](#224-use-of-fully-connected-linear-transformation) \
 &emsp;&emsp;&emsp;&emsp;[2.3.1. Impact of activation function](#231-impact-of-activation-function) \
 &emsp;&emsp;&emsp;&emsp;[2.3.2. Why is non-linearity important in Neural Networks?](#232-why-is-non-linearity-important-in-neural-networks) \
+&emsp;&emsp;&emsp;&emsp;[2.3.3. Types of Activation function](#233-types-of-activation-function) \
+&emsp;&emsp;[2.4. Loss function](#24-loss-function)
 
 
 
@@ -209,6 +211,27 @@ Without non-linearity, even deep networks would be limited to solving only simpl
 
 #### 2.3.3. Types of Activation function
 For more information, access [*Activation functions neural networks*](https://www.geeksforgeeks.org/activation-functions-neural-networks/).
+
+Here is a setup for activation function
+```py
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+class MyModel(nn.Module):
+    def __init__(self):
+        super(MyModel, self).__init__()
+        self.fc1 = nn.Linear(10, 50)
+        self.activation = nn.ReLU()  # An activation function
+        self.fc2 = nn.Linear(50, 1)
+
+    def forward(self, x):
+        x = self.fc1(x) # x "goes through" layer 01
+        x = self.activation(x) # x "goes through" an activation function
+        x = self.fc2(x) # x "goes through" layer 02
+        return x
+
+```
 ##### a. Sigmoid function
 $$
 f(x) = \frac{1}{1+e^{-x}}
@@ -233,9 +256,32 @@ where $0 \leq f(x)$.
 
 ![alt text](/lesson-04/img/relu.png)
 
+###### Choose activation function
+| Task Type                        | Recommended Activation                                                    |
+| -------------------------------- | ------------------------------------------------------------------------- |
+| **Classification (binary)**      | - `Sigmoid` (output layer) <br> - `ReLU`/`LeakyReLU` (hidden layers)      |
+| **Classification (multi-class)** | - `Softmax` (output) <br> - `ReLU`/`GELU` (hidden)                        |
+| **Regression**                   | - `Linear` or `ReLU` in output <br> (no activation or identity at output) |
+| **Transformers / NLP**           | - `GELU`, `Swish`, `ReLU`                                                 |
+| **Deep CNNs (e.g. ResNet)**      | - `ReLU`, `LeakyReLU`, `Mish`                                             |
+| **Vanishing gradient problems**  | - `ReLU`, `LeakyReLU`, `SELU` (carefully)                                 |
+
+
+### 2.4. Loss function
+>***A loss function** (also known as a cost function or error function) is a mathematical function that quantifies the difference between the predicted output of a model and the actual "ground truth" target values. Essentially, it measures how "bad" a model's predictions are.*
+
+The primary goal during the training of a machine learning model (especially in supervised learning) is to minimize this loss function. By iteratively adjusting the model's internal parameters (like weights and biases in a neural network), the optimization algorithm (e.g., gradient descent) tries to find the parameter values that result in the lowest possible loss.
+
+Loss functions are used to train models. Loss functions are important because they:
+- **Guide Model Training**: During training, algorithms such as Gradient Descent use the loss function to adjust the model's parameters and try to reduce the error and improve the model’s predictions.
+- **Measure Performance**: By finding the difference between predicted and actual values and it can be used for evaluating the model's performance.
+- **Affect learning behavior**: Different loss functions can make the model learn in different ways depending on what kind of mistakes they make.
+
 ## REFERENCES
 [1] *What is a Neural Network & How Does It Work?* (May $25^{th}$ 2025). Google Cloud. https://cloud.google.com/discover/what-is-a-neural-network \
 [2] *Neural Networks and How They Work in Natural Language Processing* (May $25^{th}$ 2025). Pangeanic. https://blog.pangeanic.com/neural-networks-and-how-they-work-in-natural-language-processing \
 [3] *Module*, PyTorch, https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html \
 [4] *Linear*, PyTorch, https://docs.pytorch.org/docs/stable/generated/torch.nn.Linear.html \
-[5] *What is Fully Connected Layer in Deep Learning?*, GeekForGeeks, https://www.geeksforgeeks.org/what-is-fully-connected-layer-in-deep-learning/
+[5] *What is Fully Connected Layer in Deep Learning?*, GeekForGeeks, https://www.geeksforgeeks.org/what-is-fully-connected-layer-in-deep-learning/\
+[6] *Loss function in Deep Learning*, GeekForGeeks, https://www.geeksforgeeks.org/loss-functions-in-deep-learning/ \
+[7] *Loss Functions in Deep Learning: A Comprehensive Review*, Omar Elharroussa, Yasir Mahmooda, Yassine Bechqitoa, Mohamed Adel Serhanib, Elarbi Badidia, Jamal Riffic and Hamid Tairic, https://arxiv.org/pdf/2504.04242
