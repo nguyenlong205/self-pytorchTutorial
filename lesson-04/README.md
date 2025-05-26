@@ -277,11 +277,17 @@ Loss functions are used to train models. Loss functions are important because th
 - **Measure Performance**: By finding the difference between predicted and actual values and it can be used for evaluating the model's performance.
 - **Affect learning behavior**: Different loss functions can make the model learn in different ways depending on what kind of mistakes they make.
 
+*Relying on the purpose and other aspects*, the programmers will choose the proper type of loss function.
 ## REFERENCES
-[1] *What is a Neural Network & How Does It Work?* (May $25^{th}$ 2025). Google Cloud. https://cloud.google.com/discover/what-is-a-neural-network \
-[2] *Neural Networks and How They Work in Natural Language Processing* (May $25^{th}$ 2025). Pangeanic. https://blog.pangeanic.com/neural-networks-and-how-they-work-in-natural-language-processing \
-[3] *Module*, PyTorch, https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html \
-[4] *Linear*, PyTorch, https://docs.pytorch.org/docs/stable/generated/torch.nn.Linear.html \
-[5] *What is Fully Connected Layer in Deep Learning?*, GeekForGeeks, https://www.geeksforgeeks.org/what-is-fully-connected-layer-in-deep-learning/\
-[6] *Loss function in Deep Learning*, GeekForGeeks, https://www.geeksforgeeks.org/loss-functions-in-deep-learning/ \
-[7] *Loss Functions in Deep Learning: A Comprehensive Review*, Omar Elharroussa, Yasir Mahmooda, Yassine Bechqitoa, Mohamed Adel Serhanib, Elarbi Badidia, Jamal Riffic and Hamid Tairic, https://arxiv.org/pdf/2504.04242
+ **[1]** *What is a Neural Network & How Does It Work?* (May $25^{th}$ 2025). Google Cloud. https://cloud.google.com/discover/what-is-a-neural-network \
+**[2]** *Neural Networks and How They Work in Natural Language Processing* (May $25^{th}$ 2025). Pangeanic. https://blog.pangeanic.com/neural-networks-and-how-they-work-in-natural-language-processing \
+**[3]** *Module*, PyTorch, https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html \
+**[4]** *Linear*, PyTorch, https://docs.pytorch.org/docs/stable/generated/torch.nn.Linear.html \
+**[5]** *What is Fully Connected Layer in Deep Learning?*, GeekForGeeks, https://www.geeksforgeeks.org/what-is-fully-connected-layer-in-deep-learning/ \
+**[6]** *Loss function in Deep Learning*, GeekForGeeks, https://www.geeksforgeeks.org/loss-functions-in-deep-learning/ \
+**[7]** *Loss Functions in Deep Learning: A Comprehensive Review*, Omar Elharroussa, Yasir Mahmooda, Yassine Bechqitoa, Mohamed Adel Serhanib, Elarbi Badidia, Jamal Riffic and Hamid Tairic, https://arxiv.org/pdf/2504.04242
+
+> **Notice**: Read more about 
+>- **The incorporation of *activation function* and *loss function***
+>- **Types of layers (e.g. fully connected layers)**
+>- **Pprocedure of dataset through a layer/a neural network system**
