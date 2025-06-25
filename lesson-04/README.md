@@ -190,7 +190,7 @@ This output shape indicates that for every input sample, the linear transformati
 - **Combining features**: They integrate information from previous layers to form high-level representations, important for understanding complex data like language.
 - **Making decisions**: They translate these features into final outputs for tasks like classification (e.g., text categorization in NLP) or regression.
 - **Introducing non-linearity**: Using activation functions, they allow the network to learn complex, non-linear relationships, essential for modeling the intricacies of human language. It follows the following procedure:
-`Feature_input -> Weighted combination -> Non-linear Activation -> Activated output`
+`Feature input -> Weighted combination -> Non-linear Activation -> Activated output`
 
 - **Universal approximation**: Theoretically, they can approximate any continuous function, giving them broad applicability in various tasks, including NLP.
 - **Flexibility**: Adaptable to diverse data types and network architectures, making them versatile for NLP tasks.
